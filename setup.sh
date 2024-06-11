@@ -14,21 +14,25 @@ if [ -e /Applications/iterm.app ]; then
   echo -e "👍\033[0;96m iterm2\033[0m is installed"
 else
   echo -e "✅\033[0;96m Installing iterm2\033[0m"
-  brew install iterm2
+  brew install iterm2 > /dev/null 2>&1
 fi
 
 # install gotham theme on iterm
-echo -e "✅ download \033[0;96mgotham theme\033[0m"
-curl -sSo __temp__Gotham-stable.itermcolors -L "https://raw.githubusercontent.com/jackfan108/env-setup/main/Gotham-stable.itermcolors"
-open __temp__Gotham-stable.itermcolors
-rm __temp__Gotham-stable.itermcolors
+if [ -e "/Users/jackfan/Library/Preferences/com.googlecode.iterm2.plist" ] && cat /Users/jackfan/Library/Preferences/com.googlecode.iterm2.plist | grep Gotham; then
+  echo -e "👍\033[0;96m gotham theme\033[0m installed"
+else
+  echo -e "✅ download \033[0;96mgotham theme\033[0m"
+  curl -sSo Gotham-stable.itermcolors -L "https://raw.githubusercontent.com/jackfan108/env-setup/main/Gotham-stable.itermcolors"
+  open Gotham-stable.itermcolors
+  rm Gotham-stable.itermcolors
+fi
 
 # install command-line fuzzy finder
 if command -v fzf >/dev/null 2>&1; then
   echo -e "👍\033[0;96m fzf\033[0m is installed; version=$(fzf --version)"
 else
   echo -e "✅\033[0;96m Installing fzf (command-line fuzzy finder)\033[0m"
-  brew install fzf
+  brew install fzf > /dev/null 2>&1
   source <(fzf --zsh)
 fi
 
@@ -36,7 +40,7 @@ fi
 if brew list | grep difftastic; then
   echo -e "👍\033[0;96m difftastic\033[0m is installed"
 else
-  brew install difftastic
+  brew install difftastic > /dev/null 2>&1
 fi
 
 # create and download zshrc
