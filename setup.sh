@@ -18,7 +18,7 @@ else
 fi
 
 # install gotham theme on iterm
-if [ -e ~/Library/Preferences/com.googlecode.iterm2.plist ] && cat ~/Library/Preferences/com.googlecode.iterm2.plist | grep Gotham; then
+if [ -e "~/Library/Preferences/com.googlecode.iterm2.plist" ] && cat ~/Library/Preferences/com.googlecode.iterm2.plist | grep Gotham; then
   echo -e "👍\033[0;96m gotham theme\033[0m installed"
 else
   echo -e "✅ download \033[0;96mgotham theme\033[0m"
