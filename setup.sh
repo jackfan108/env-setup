@@ -58,7 +58,7 @@ echo -e "✅ download \033[0;96m .zshrc\033[0m"
 curl -sSo ~/.zshrc -L "https://raw.githubusercontent.com/jackfan108/env-setup/main/.zshrc"
 echo -e "✅ source \033[0;96m .zshrc\033[0m"
 
-if [ -e "/Users/jackfan/Library/Application Support/Sublime Text/Packages/User" ]; then
+if [ -e "/Users/jackfan/Library/Application Support/Sublime Text" ]; then
   echo -e "✅ download \033[0;96m sublime preference settings\033[0m"
   curl -sSo "/Users/jackfan/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings" -L "https://raw.githubusercontent.com/jackfan108/env-setup/main/Preferences.sublime-settings"
   echo -e "✅ download \033[0;96m sublime keymap\033[0m"
