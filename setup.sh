@@ -30,6 +30,8 @@ curl -o ~/.zshrc -L "https://raw.githubusercontent.com/jackfan108/env-setup/main
 echo -e "✅ source \033[0;96m .zshrc\033[0m"
 
 if [ -e "/Users/jackfan/Library/Application Support/Sublime Text 3/Packages/User" ]; then
+  echo -e "✅ download \033[0;96m sublime preference settings\033[0m"
+  curl -o "/Users/jackfan/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings" -L "https://raw.githubusercontent.com/jackfan108/env-setup/main/Preferences.sublime-settings"
   echo -e "✅ download \033[0;96m sublime keymap\033[0m"
   curl -o "/Users/jackfan/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap" -L "https://raw.githubusercontent.com/jackfan108/env-setup/main/Default%20(OSX).sublime-keymap"
   echo -e "✅ download \033[0;96m sublime mousemap\033[0m"
