@@ -29,9 +29,9 @@ echo -e "✅ download \033[0;96m .zshrc\033[0m"
 curl -o ~/.zshrc -L "https://raw.githubusercontent.com/jackfan108/env-setup/main/.zshrc"
 echo -e "✅ source \033[0;96m .zshrc\033[0m"
 
-if [ -e /Users/jackfan/Library/Application Support/Sublime Text 3/Packages/User ]; then
+if [ -e "/Users/jackfan/Library/Application Support/Sublime Text 3/Packages/User" ]; then
   echo -e "✅ download \033[0;96m sublime keymap\033[0m"
-  curl -o "/Users/jackfan/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap" -L "https://raw.githubusercontent.com/jackfan108/env-setup/main/https://raw.githubusercontent.com/jackfan108/env-setup/main/Default%20(OSX).sublime-keymap"
+  curl -o "/Users/jackfan/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap" -L "https://raw.githubusercontent.com/jackfan108/env-setup/main/Default%20(OSX).sublime-keymap"
 else
   echo -e "🔸sublime text may not be installed; skipping keymap download"
 fi
