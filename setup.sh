@@ -9,6 +9,14 @@ else
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+# install iterm2
+if [ -e /Applications/iterm.app ]; then
+  echo -e "👍\033[0;96m iterm2\033[0m is installed"
+else
+  echo -e "✅\033[0;96m Installing iterm2\033[0m"
+  brew install iterm2
+fi
+
 # install command-line fuzzy finder
 if command -v fzf >/dev/null 2>&1; then
   echo -e "👍\033[0;96m fzf\033[0m is installed; version=$(fzf --version)"
@@ -18,7 +26,7 @@ else
 fi
 
 # Difftastic is a structural diff tool that compares files based on their syntax.
-if command -v fzf >/dev/null 2>&1; then
+if brew list | grep difftastic; then
   echo -e "👍\033[0;96m difftastic\033[0m is installed"
 else
   brew install difftastic
@@ -39,3 +47,4 @@ if [ -e "/Users/jackfan/Library/Application Support/Sublime Text 3/Packages/User
 else
   echo -e "🔸sublime text may not be installed; skipping keymap/mousemap download"
 fi
+
