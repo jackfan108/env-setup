@@ -1,7 +1,9 @@
 export PATH="~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:$PATH"
-[ -f /usr/local/bin ] || mkdir /usr/local/bin 
-[ -f /usr/local/bin/subl ] || ln -s "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
-export EDITOR=vim
+export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
+if [ -e /usr/local/bin/subl ]; then
+  sudo ln -s "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+fi
+export EDITOR=subl
 
 # shows current branch with no arguments
 # check out to the branch that first matches the regex pattern provided as 1st argument
@@ -22,7 +24,7 @@ function brd() {
   for branchRef in $(git for-each-ref --format='%(refname)' refs/heads/); do
     # remove the "refs/heads/" in front
     branch=$(echo $branchRef | sed s/"refs\/heads\/"//g)
-    if [[ $branch =~ (production)|(master)|(development) ]]; then
+    if [[ $branch == *production* || $branch == *master* || $branch == *development* ]]; then
       echo -e "skipped \033[0;96m $branch\033[0m"
       continue
     fi
@@ -88,6 +90,8 @@ function gp() {
   git pull -p --ff-only origin $current_branch
 }
 
+git config --global user.name "Jack Fan"
+git config --global user.email jackfan108@gmail.com
 git config --global alias.co checkout
 git config --global alias.st status
 git config --global alias.br branch
@@ -112,10 +116,6 @@ git config --global color.status.added "black normal"
 git config --global color.status.updated "green normal"
 git config --global color.status.branch "yellow normal bold"
 git config --global color.status.header "white normal bold"
-
-bindkey -e
-bindkey '\e\e[C' forward-word
-bindkey '\e\e[D' backward-word 
 
 export CDPATH=.\
 :${HOME}\
