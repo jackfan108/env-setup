@@ -2,4 +2,5 @@
 brew install fzf
 
 # create and download zshrc
-touch .zshrc
+curl -o ~/.zshrc -L "https://raw.githubusercontent.com/jackfan108/env-setup/main/.zshrc"
+source ~/.zshrc
