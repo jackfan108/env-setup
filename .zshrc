@@ -113,15 +113,9 @@ git config --global color.status.updated "green normal"
 git config --global color.status.branch "yellow normal bold"
 git config --global color.status.header "white normal bold"
 
-
-# AIRLAB-DO-NOT-MODIFY section:ShellWrapper {{{
-# Airlab will only make edits inside these delimiters.
-
-# Source Airlab's shell integration, if it exists.
-if [ -e ~/.airlab/shellhelper.sh ]; then
-  source ~/.airlab/shellhelper.sh
-fi
-# AIRLAB-DO-NOT-MODIFY section:ShellWrapper }}}
+bindkey -e
+bindkey '\e\e[C' forward-word
+bindkey '\e\e[D' backward-word 
 
 export CDPATH=.\
 :${HOME}\
