@@ -1,6 +1,6 @@
 export PATH="~/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:$PATH"
 
-[ -f /usr/local/bin/subl ] || ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+[ -f /usr/local/bin/subl ] || ln -s "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 export EDITOR=vim
 
 # shows current branch with no arguments
