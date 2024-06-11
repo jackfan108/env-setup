@@ -106,26 +106,4 @@ git config --global alias.rbc "rebase -c"
 # use difftastic
 git config --global diff.external difft
 
-git config --global color.ui true
-git config --global color.diff always
-git config --global color.diff.old "red bold"
-git config --global color.diff.new "green bold"
-git config --global color.status.changed "blue normal"
-git config --global color.status.untracked "red normal"
-git config --global color.status.added "black normal"
-git config --global color.status.updated "green normal"
-git config --global color.status.branch "yellow normal bold"
-git config --global color.status.header "white normal bold"
-
-export CDPATH=.\
-:${HOME}\
-:${HOME}/airlab\
-:${HOME}/airlab/repos\
-:${HOME}/airlab/repos/treehouse\
-:${HOME}/airlab/repos/treehouse/projects\
-:${HOME}/airlab/repos/treehouse/projects/payments\
-:${HOME}/airlab/repos/sysops\
-:${HOME}/airlab/repos/onetouch-codelabs/projects\
-
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
