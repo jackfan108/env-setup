@@ -29,6 +29,7 @@ if command -v fzf >/dev/null 2>&1; then
 else
   echo -e "✅\033[0;96m Installing fzf (command-line fuzzy finder)\033[0m"
   brew install fzf
+  source <(fzf --zsh)
 fi
 
 # Difftastic is a structural diff tool that compares files based on their syntax.
