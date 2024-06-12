@@ -3,7 +3,7 @@ export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
 if [ -e /usr/local/bin/subl ]; then
   sudo ln -s "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 fi
-export EDITOR=subl
+export EDITOR=vim
 
 # shows current branch with no arguments
 # check out to the branch that first matches the regex pattern provided as 1st argument
