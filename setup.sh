@@ -57,6 +57,7 @@ fi
 if brew list | grep difftastic; then
   echo -e "👍\033[0;96m difftastic\033[0m installed already"
 else
+  echo -e "✅\033[0;96m Installing difftastic\033[0m"
   brew install difftastic > /dev/null 2>&1
 fi
 
