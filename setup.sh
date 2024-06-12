@@ -3,7 +3,7 @@ HOME=$(pwd)
 
 # install homebrew
 if command -v brew >/dev/null 2>&1; then
-  echo -e "👍\033[0;96m Homebrew\033[0m is installed. Version=$(brew --version)"
+  echo -e "👍\033[0;96m Homebrew\033[0m installed already. Version=$(brew --version)"
 else
   echo -e "✅\033[0;96m Installing Homebrew\033[0m"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -14,7 +14,7 @@ fi
 
 # install iterm2
 if [ -e /Applications/iterm.app ]; then
-  echo -e "👍\033[0;96m iterm2\033[0m is installed"
+  echo -e "👍\033[0;96m iterm2\033[0m installed already"
 else
   echo -e "✅\033[0;96m Installing iterm2\033[0m"
   brew install iterm2 > /dev/null 2>&1
@@ -32,8 +32,9 @@ fi
 
 # install sublime text
 if [ -e /Applications/Sublime\ Text.app ]; then
-  echo -e "👍\033[0;96m Sublime Text\033[0m is installed"
+  echo -e "👍\033[0;96m Sublime Text\033[0m installed already"
 else
+  SUBLIME_FIRST_START_WARNING=1
   echo -e "✅\033[0;96m install Sublime Text\033[0m"
   brew install --cask sublime-text > /dev/null 2>&1
   # here we manually create these dirs because these dirs don't get created until we run subl for the first time
@@ -45,7 +46,7 @@ fi
 
 # install command-line fuzzy finder
 if command -v fzf >/dev/null 2>&1; then
-  echo -e "👍\033[0;96m fzf\033[0m is installed; version=$(fzf --version)"
+  echo -e "👍\033[0;96m fzf\033[0m installed already; version=$(fzf --version)"
 else
   echo -e "✅\033[0;96m Installing fzf (command-line fuzzy finder)\033[0m"
   brew install fzf > /dev/null 2>&1
@@ -54,7 +55,7 @@ fi
 
 # Difftastic is a structural diff tool that compares files based on their syntax.
 if brew list | grep difftastic; then
-  echo -e "👍\033[0;96m difftastic\033[0m is installed"
+  echo -e "👍\033[0;96m difftastic\033[0m installed already"
 else
   brew install difftastic > /dev/null 2>&1
 fi
@@ -75,4 +76,8 @@ if [ -e "$HOME/Library/Application Support/Sublime Text" ]; then
   curl -sSo "$HOME/Library/Application Support/Sublime Text/Packages/User/Package Control.sublime-settings" -L "https://raw.githubusercontent.com/jackfan108/env-setup/main/Package%20Control.sublime-settings"
 else
   echo -e "🔸sublime text may not be installed; skipping settings/bindings download"
+fi
+
+if [[ -n $SUBLIME_FIRST_START_WARNING && $SUBLIME_FIRST_START_WARNING -eq 1 ]]; then
+  echo -e "📙 Note that if you're starting Sublime for the first time, it would complain about certain packages not existing. The installed package-manager should auto-resolve this within seconds. Use \033[0;96m subl\033[0m or \033[0;96m subl .\033[0m to start Sublime."
 fi
