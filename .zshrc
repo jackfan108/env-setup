@@ -107,3 +107,4 @@ git config --global alias.rbc "rebase -c"
 git config --global diff.external difft
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source <(fzf --zsh)
