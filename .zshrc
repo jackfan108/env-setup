@@ -108,3 +108,7 @@ git config --global diff.external difft
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 source <(fzf --zsh)
+
+export CDPATH=.\
+:${HOME}\
+:${HOME}/repos
