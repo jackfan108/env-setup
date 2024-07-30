@@ -77,7 +77,7 @@ function src() {
 }
 
 function gpoh() {
-  git push origin head
+  git push origin HEAD
 }
 
 function gp() {
