@@ -106,6 +106,15 @@ git config --global alias.rbc "rebase -c"
 # use difftastic
 git config --global diff.external difft
 
+# This loads the Version Control System into your prompt
+autoload -Uz vcs_info
+precmd() { vcs_info }
+# Next, you want to add the next line that sets up the Git branch details into your prompt.
+zstyle ':vcs_info:git:*' formats '%b '
+# set prompt
+setopt PROMPT_SUBST
+PROMPT='%F{green}%*%f %F{blue}%~%f %F{cyan}${vcs_info_msg_0_}%f$ '
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 source <(fzf --zsh)
 
